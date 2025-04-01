@@ -1,20 +1,31 @@
 /* This is a stub for the Cafe class */
 public class Cafe extends Building implements CafeRequirements{
+    // attributes
     int nCoffeeounces=10;
     int nSugarPackets=5;
     int nCreams=5;
     int nCups=5;
+    /*constructor
+     * @param String name, String address, int nFloors
+     */
     public Cafe(String name, String address, int nFloors) {
         super(name,address,nFloors);
         System.out.println("You have built a cafe: ☕");
     }
+    /* restock()
+     * @param int nCoffeeounces, int nSugarPackets, int nCreams, int nCups
+     */
     public void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups){
         this.nCoffeeounces+=nCoffeeOunces;
         this.nSugarPackets+=nSugarPackets;
         this.nCreams+=nCreams;
         this.nCups+=nCups;
     }
+    /* sellCoffee()
+     * @param int size, int nSugarPackets, int nCreams
+     */
     public void sellCoffee(int size, int nSugarPackets,int nCreams){
+        // restock only the item that goes below 0
         if((this.nCoffeeounces-=size)<0){
             this.restock(2*size,0,0,0);
         }
@@ -27,6 +38,7 @@ public class Cafe extends Building implements CafeRequirements{
         if((this.nCups==0)){
             this.restock(0,0,0,10);
         }
+        // update the value
         this.nCoffeeounces-=size;
         this.nSugarPackets-=nSugarPackets;
         this.nCreams-=nCreams;
