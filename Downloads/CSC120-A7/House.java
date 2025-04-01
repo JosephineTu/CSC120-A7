@@ -39,7 +39,11 @@ public class House extends Building implements HouseRequirements{
   }
   public static void main(String[] args) {
 
-    new House("Hubbard","3 Green Street",4);
+    House hubbard=new House("Hubbard","3 Green Street",4);
+    Student josephine=new Student("Josephine","991479716",2028);
+    hubbard.moveIn(josephine);
+    boolean check=hubbard.isResident(josephine);
+    System.out.println(check);
   }
 
 }
